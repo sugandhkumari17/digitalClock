@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(https://wallpaperaccess.com/full/1845512.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+       h1{
+          border : 2px solid black;
+         text-align: center;
+         margin-top: 200px;
+         font-size: 100px;
+         box-shadow: 10px 10px 16px 15px white;
+         color: white;
+       } 
+      
+    </style>
+</head>
+<body >
+    <h1 id="currentTime" ></h1>
+    <script>
+        function myclock(){
+            var times= new Date();
+            var hours= times.getHours();
+            var seconds=times.getSeconds();
+            var mint=times.getMinutes();
+            var myset="AM";
+            if(hours==0){
+                hours=12;
+            }
+            if(hours>12)
+            {
+               hours=hours-12;
+                myset= "PM";
+            }
+            hours= digitaltime(hours);
+            mint = digitaltime(mint);
+            seconds = digitaltime(seconds);
+            var clockstime = hours + " : " + mint + ": " + seconds +" "+ myset ;
+            document.getElementById("currentTime").innerText = clockstime;
+            
+            setTimeout(myclock,1000);
+        }
+        function digitaltime(i)
+        {
+            if(i<10)
+            {
+                i= "0"+ i;
+                return i;
+            }
+            else{
+                return i;
+            }
+        }
+        myclock();
+    </script>
+</body>
+</html>
